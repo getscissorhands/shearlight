@@ -10,4 +10,5 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 - Personalized the repository documentation, community guidance, and issue forms for Shearlight.
 - Updated the MIT copyright year to 2026 for the existing holder.
+- Updated the theme display name and sample site title for Shearlight.
 - Switched the sample to `en` and `ko` locales and moved Korean translations to match.
