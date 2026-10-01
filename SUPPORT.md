@@ -5,7 +5,7 @@ For theme setup, configuration, and customization, start with the
 See [README.md](README.md) for local setup and
 [sample/README.md](sample/README.md) for preview commands.
 
-For questions about this starter, email
+For questions about Shearlight, email
 `ask (at) getscissorhands (dot) app`. Remove secrets and
 private content from any configuration, examples, or logs you share.
 
@@ -17,5 +17,5 @@ ScissorHands package versions, and environment details.
 Report suspected vulnerabilities privately as described in
 [SECURITY.md](SECURITY.md), never in a public issue.
 
-If you are using a theme created from this template, contact that theme's
-maintainers first for problems specific to their repository.
+If you are using another theme, contact that theme's maintainers first for
+problems specific to their repository.
