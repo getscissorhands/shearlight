@@ -1,12 +1,12 @@
 name: Feature Request
-description: Suggest an improvement to the ScissorHands.NET theme starter.
+description: Suggest an improvement to the Shearlight theme for ScissorHands.NET.
 title: "[Feature]: "
 labels: ["enhancement"]
 body:
   - type: markdown
     attributes:
       value: |
-        Thanks for suggesting an improvement to the theme starter!
+        Thanks for suggesting an improvement to Shearlight!
         Explain the use case and keep proposals scoped to the theme rather than
         the ScissorHands.NET engine. Remove private information from examples.
 

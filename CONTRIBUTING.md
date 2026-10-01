@@ -1,7 +1,8 @@
-# Contributing to Theme Template
+# Contributing to Shearlight
 
-This repository is a ScissorHands.NET theme starter, not the engine. It renders
-static HTML with Razor and uses framework-free CSS and plain JavaScript.
+This repository contains the Shearlight theme for ScissorHands.NET, not the
+engine. It renders static HTML with Razor and uses framework-free CSS and plain
+JavaScript.
 See the [theme documentation](https://getscissorhands.app/docs/themes/) for
 theme APIs and customization.
 
@@ -12,8 +13,7 @@ By participating, you are expected to uphold this code.
 
 ## Getting Started
 
-To contribute to this starter, fork and clone the repository. To create your
-own theme instead, use the template as described in [README.md](README.md).
+To contribute to Shearlight, fork and clone this repository.
 
 Install the .NET SDK selected by [global.json](global.json), then create a
 branch using `type/short-kebab-case-description`, such as
@@ -70,19 +70,27 @@ a .NET build.
 
 ## Releases
 
-The [build and release workflow](.github/workflows/main.yaml) creates a GitHub
-release whenever a new `v*` tag is pushed, after the Release solution build
-succeeds. Use `v` followed by a [SemVer 2.0.0](https://semver.org/) version, such
-as `v1.2.3` or `v1.2.3-preview.1`. The workflow extracts the version from the tag
-without enforcing full SemVer syntax or setting GitHub's prerelease flag.
-Version suffixes and build metadata such as `v1.2.3+build.42` are preserved.
+The [build, release, and deploy workflow](.github/workflows/main.yaml) creates
+a GitHub release and deploys the production sample to GitHub Pages whenever a
+new `v*` tag is pushed, after the Release solution build succeeds. Use `v`
+followed by a [SemVer 2.0.0](https://semver.org/) version, such as `v1.2.3` or
+`v1.2.3-preview.1`. The workflow extracts the version from the tag without
+enforcing full SemVer syntax or setting GitHub's prerelease flag. Version
+suffixes and build metadata such as `v1.2.3+build.42` are preserved.
 
-Releases use the pushed tag and automatically generated release notes, with
-GitHub's standard source archives. The workflow does not publish NuGet packages
-or require the tag version to match `src/theme.json`.
+Releases attach `shearlight-<tag>.zip` with the theme sources and assets (excluding
+`bin` and `obj`) alongside GitHub's standard source archives and automatically
+generated release notes. The workflow sets `src/theme.json` to the tag version
+in the build workspace; it does not publish NuGet packages or require the
+committed manifest version to match the tag.
+
+The production sample is generated with `Site:BaseUrl` set to `/shearlight/`
+and `Site:SiteUrl` set to `https://getscissorhands.app`, then deployed at
+`https://getscissorhands.app/shearlight/`. Local preview settings remain
+unchanged. Never deploy the preview output.
 
 Branch pushes, updates to existing tags, pull requests, and manual workflow runs
-only build the solution and do not create releases.
+only build the solution and do not create releases or deploy Pages.
 
 ## Pull Request Process
 
@@ -108,21 +116,12 @@ Mark breaking changes with `!` or a `BREAKING CHANGE:` footer.
 
 ## Reporting Bugs
 
-Use the [bug report template](.github/ISSUE_TEMPLATE/bug_report.yml).
+Use the [bug report template](.github/ISSUE_TEMPLATE/01-BUG-REPORT.yml).
 Include steps to reproduce, expected behavior, and your environment details.
 Report suspected vulnerabilities privately using [SECURITY.md](SECURITY.md),
 not in a public issue. For usage questions, see [SUPPORT.md](SUPPORT.md).
 
 ## Requesting Features
 
-Use the [feature request template](.github/ISSUE_TEMPLATE/feature_request.yml).
+Use the [feature request template](.github/ISSUE_TEMPLATE/02-FEATURE-REQUEST.yml).
 Describe the problem, your proposed solution, and any alternatives considered.
-
-## Reusing This Template
-
-Before inviting contributors to a generated theme repository, replace the
-support and enforcement contacts, `.github/CODEOWNERS`, and
-`.github/FUNDING.yml` with your own project details, or remove configurations
-that do not apply. Review the community policies and clear this starter's
-changelog entries in favor of your own history. Keep the existing MIT copyright
-and license notice when redistributing the starter.

@@ -22,4 +22,4 @@ await app.RunAsync();
 ```
 
 페이지 탐색 예제는 [테마 안내](theme-guide)에서 살펴보고, 더 긴 스타일 예제는
-[Markdown 주제](ko-kr/tags/markdown)에서 찾아보세요.
+[Markdown 주제](ko/tags/markdown)에서 찾아보세요.

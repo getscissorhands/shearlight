@@ -1,14 +1,12 @@
 # Security Policy
 
-This policy covers the ScissorHands.NET theme starter in this repository.
-Repositories created from this template should publish their own security
-contacts and policies.
+This policy covers the Shearlight theme for ScissorHands.NET in this repository.
 
 ## Reporting a Vulnerability
 
 Please do **not** open a public GitHub issue for security vulnerabilities.
 
-Email **[ask@getscissorhands.app](mailto:ask@getscissorhands.app)** privately.
+Email **`ask (at) getscissorhands (dot) app`** privately.
 
 Include the following in your report:
 

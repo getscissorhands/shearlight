@@ -1,12 +1,12 @@
 name: Bug Report
-description: Report a problem with the ScissorHands.NET theme starter.
+description: Report a problem with the Shearlight theme for ScissorHands.NET.
 title: "[Bug]: "
 labels: ["bug"]
 body:
   - type: markdown
     attributes:
       value: |
-        Thanks for helping improve the theme starter!
+        Thanks for helping improve Shearlight!
         Report suspected vulnerabilities privately using SECURITY.md, not here.
         Remove secrets and private content from examples, logs, and screenshots.
 
