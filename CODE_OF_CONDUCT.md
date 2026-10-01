@@ -1,5 +1,7 @@
 # Contributor Covenant Code of Conduct
 
+This Code of Conduct applies to the Shearlight theme for ScissorHands.NET.
+
 ## Our Pledge
 
 We as members, contributors, and leaders pledge to make participation in our

@@ -1,8 +1,6 @@
 # Security Policy
 
-This policy covers the ScissorHands.NET theme starter in this repository.
-Repositories created from this template should publish their own security
-contacts and policies.
+This policy covers the Shearlight theme for ScissorHands.NET in this repository.
 
 ## Reporting a Vulnerability
 

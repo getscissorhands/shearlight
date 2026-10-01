@@ -1,7 +1,8 @@
-# Contributing to Theme Template
+# Contributing to Shearlight
 
-This repository is a ScissorHands.NET theme starter, not the engine. It renders
-static HTML with Razor and uses framework-free CSS and plain JavaScript.
+This repository contains the Shearlight theme for ScissorHands.NET, not the
+engine. It renders static HTML with Razor and uses framework-free CSS and plain
+JavaScript.
 See the [theme documentation](https://getscissorhands.app/docs/themes/) for
 theme APIs and customization.
 
@@ -12,8 +13,7 @@ By participating, you are expected to uphold this code.
 
 ## Getting Started
 
-To contribute to this starter, fork and clone the repository. To create your
-own theme instead, use the template as described in [README.md](README.md).
+To contribute to Shearlight, fork and clone this repository.
 
 Install the .NET SDK selected by [global.json](global.json), then create a
 branch using `type/short-kebab-case-description`, such as
@@ -117,12 +117,3 @@ not in a public issue. For usage questions, see [SUPPORT.md](SUPPORT.md).
 
 Use the [feature request template](.github/ISSUE_TEMPLATE/feature_request.yml).
 Describe the problem, your proposed solution, and any alternatives considered.
-
-## Reusing This Template
-
-Before inviting contributors to a generated theme repository, replace the
-support and enforcement contacts, `.github/CODEOWNERS`, and
-`.github/FUNDING.yml` with your own project details, or remove configurations
-that do not apply. Review the community policies and clear this starter's
-changelog entries in favor of your own history. Keep the existing MIT copyright
-and license notice when redistributing the starter.
