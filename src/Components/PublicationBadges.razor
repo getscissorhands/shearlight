@@ -1,0 +1,16 @@
+@using System.Globalization
+@inherits PublicationBadgeBase
+
+@if (Badges.Count > 0)
+{
+    var messages = PublicationMessages;
+    <span class="publication-badges" lang="@LocaleContext?.Locale">
+        @foreach (var badge in Badges)
+        {
+            var label = badge.ScheduledDate is { } date
+                ? string.Format(CultureInfo.InvariantCulture, messages.ScheduledOn!, date.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture))
+                : messages.Draft!;
+            <span class="publication-badge" @attributes="badge.Attributes">@badge.RenderContent(label)</span>
+        }
+    </span>
+}

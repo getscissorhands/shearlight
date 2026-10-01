@@ -1,0 +1,104 @@
+@inherits MainLayoutBase
+
+<CascadingMainLayoutBase Documents="@Documents"
+                         TaggedDocuments="@TaggedDocuments"
+                         Tag="@Tag"
+                         TaggedPosts="@TaggedPosts"
+                         TaggedPages="@TaggedPages"
+                         Document="@Document"
+                         PageNavigation="@PageNavigation"
+                         LocaleContext="@LocaleContext"
+                         Plugins="@Plugins"
+                         Theme="@Theme"
+                         ThemeSettings="@ThemeSettings"
+                         Site="@Site">
+
+<!DOCTYPE html>
+<html lang="@(string.IsNullOrWhiteSpace(PageLocale) ? null : PageLocale)">
+<head>
+    <base href="@Site!.BaseUrl" />
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/x-icon" href="@GetThemeUrl("favicon.ico")" />
+    <meta name="generator" content="@Site!.Generator" />
+
+    <title>@PageTitle</title>
+    <meta name="title" content="@PageTitle" />
+    <meta name="description" content="@PageDescription" />
+    <LocalizationMetadata />
+    <script>
+        (() => {
+            try {
+                const preference = localStorage.getItem("scissorhands-theme-mode");
+                if (preference === "light" || preference === "dark") {
+                    document.documentElement.dataset.theme = preference;
+                }
+            } catch (error) {
+                if (!(error instanceof DOMException) || error.name !== "SecurityError") throw error;
+                console.warn("Colour preference storage is unavailable; using the system preference.", error);
+            }
+        })();
+    </script>
+    @if (Theme!.Stylesheets is not null)
+    {
+        foreach (var css in Theme!.Stylesheets)
+        {
+            <link rel="stylesheet" href="@GetThemeUrl(css)" />
+        }
+    }
+</head>
+<body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+        <div class="site-shell site-header-inner">
+            <a class="site-title" href="@GetHomeUrl()">@Site!.Title</a>
+            <nav class="site-navigation" aria-label="Primary navigation">
+                <ul class="navigation-list">
+                    <li><a href="@GetHomeUrl()">Home</a></li>
+                    <NavigationItems Nodes="@NavigationTree" />
+                    @if (GetTagIndexUrl() is { } tagIndexUrl)
+                    {
+                        <li><a href="@tagIndexUrl">Tags</a></li>
+                    }
+                    <LanguageSwitcher />
+                    <li>
+                        <a class="github-link" href="https://github.com/getscissorhands/theme-template"
+                           aria-label="View theme template on GitHub" title="GitHub">
+                            <span class="github-icon" aria-hidden="true"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <button class="theme-toggle" type="button" data-theme-toggle
+                                aria-label="Switch to dark mode" title="Switch to dark mode" hidden>
+                            <span class="theme-icon-dark" aria-hidden="true"></span>
+                            <span class="theme-icon-light" aria-hidden="true"></span>
+                        </button>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main id="main-content" class="site-shell site-main">
+        @Body
+    </main>
+    <footer class="site-footer">
+        <div class="site-shell site-footer-inner">
+            <p>&copy; @DateTime.UtcNow.Year @Site.Author</p>
+            <p>Powered by <a href="https://getscissorhands.app/">ScissorHands.NET</a></p>
+            <p data-current-time-container hidden>
+                Your local time: <time data-current-time></time>
+            </p>
+        </div>
+    </footer>
+    @if (Theme!.Scripts is not null)
+    {
+        foreach (var script in Theme!.Scripts)
+        {
+            <script src="@GetThemeUrl(script)"></script>
+        }
+    }
+</body>
+</html>
+
+</CascadingMainLayoutBase>

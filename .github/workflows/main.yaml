@@ -1,0 +1,84 @@
+name: Build and release
+
+on:
+  push:
+    branches:
+      - main
+      - "build/*"
+      - "chore/*"
+      - "ci/*"
+      - "docs/*"
+      - "feat/*"
+      - "fix/*"
+      - "perf/*"
+      - "refactor/*"
+      - "revert/*"
+      - "style/*"
+      - "test/*"
+    tags:
+      - "v*"
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: Build theme and sample
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+
+      - name: Set up .NET
+        uses: actions/setup-dotnet@v6
+
+      - name: Link sample theme
+        shell: pwsh
+        run: |
+          $settings = Get-Content -LiteralPath "sample/appsettings.json" -Raw | ConvertFrom-Json
+          $theme = $settings.Site.Theme
+          if ([string]::IsNullOrWhiteSpace($theme)) {
+            throw "Site:Theme must identify the sample theme."
+          }
+          $linkPath = Join-Path "sample/themes" $theme
+          if (-not (Test-Path -LiteralPath $linkPath)) {
+            New-Item -ItemType Directory -Path "sample/themes" -Force | Out-Null
+            New-Item -ItemType SymbolicLink -Path $linkPath -Target "../../src" | Out-Null
+          }
+
+      - name: Restore packages
+        run: dotnet restore
+
+      - name: Build solution
+        run: dotnet build --configuration Release --no-restore
+
+      # Uncomment after adding test projects to the solution.
+      # - name: Test solution
+      #   run: dotnet test --configuration Release --no-build --no-restore
+
+  release:
+    name: Create GitHub release
+    if: ${{ github.event_name == 'push' && github.event.created && startsWith(github.ref, 'refs/tags/v') }}
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: write
+    steps:
+      - name: Check release version
+        id: version
+        shell: pwsh
+        run: |
+          $version = $env:GITHUB_REF -replace '^refs/tags/v', ''
+          "value=$version" | Out-File -FilePath $env:GITHUB_OUTPUT -Append
+
+      - name: Create release with generated notes
+        uses: softprops/action-gh-release@v3
+        with:
+          tag_name: v${{ steps.version.outputs.value }}
+          generate_release_notes: true
