@@ -70,19 +70,27 @@ a .NET build.
 
 ## Releases
 
-The [build and release workflow](.github/workflows/main.yaml) creates a GitHub
-release whenever a new `v*` tag is pushed, after the Release solution build
-succeeds. Use `v` followed by a [SemVer 2.0.0](https://semver.org/) version, such
-as `v1.2.3` or `v1.2.3-preview.1`. The workflow extracts the version from the tag
-without enforcing full SemVer syntax or setting GitHub's prerelease flag.
-Version suffixes and build metadata such as `v1.2.3+build.42` are preserved.
+The [build, release, and deploy workflow](.github/workflows/main.yaml) creates
+a GitHub release and deploys the production sample to GitHub Pages whenever a
+new `v*` tag is pushed, after the Release solution build succeeds. Use `v`
+followed by a [SemVer 2.0.0](https://semver.org/) version, such as `v1.2.3` or
+`v1.2.3-preview.1`. The workflow extracts the version from the tag without
+enforcing full SemVer syntax or setting GitHub's prerelease flag. Version
+suffixes and build metadata such as `v1.2.3+build.42` are preserved.
 
-Releases use the pushed tag and automatically generated release notes, with
-GitHub's standard source archives. The workflow does not publish NuGet packages
-or require the tag version to match `src/theme.json`.
+Releases attach `shearlight-<tag>.zip` with the theme sources and assets (excluding
+`bin` and `obj`) alongside GitHub's standard source archives and automatically
+generated release notes. The workflow sets `src/theme.json` to the tag version
+in the build workspace; it does not publish NuGet packages or require the
+committed manifest version to match the tag.
+
+The production sample is generated with `Site:BaseUrl` set to `/shearlight/`
+and `Site:SiteUrl` set to `https://getscissorhands.app`, then deployed at
+`https://getscissorhands.app/shearlight/`. Local preview settings remain
+unchanged. Never deploy the preview output.
 
 Branch pushes, updates to existing tags, pull requests, and manual workflow runs
-only build the solution and do not create releases.
+only build the solution and do not create releases or deploy Pages.
 
 ## Pull Request Process
 
