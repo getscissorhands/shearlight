@@ -108,12 +108,12 @@ Mark breaking changes with `!` or a `BREAKING CHANGE:` footer.
 
 ## Reporting Bugs
 
-Use the [bug report template](.github/ISSUE_TEMPLATE/bug_report.yml).
+Use the [bug report template](.github/ISSUE_TEMPLATE/01-BUG-REPORT.yml).
 Include steps to reproduce, expected behavior, and your environment details.
 Report suspected vulnerabilities privately using [SECURITY.md](SECURITY.md),
 not in a public issue. For usage questions, see [SUPPORT.md](SUPPORT.md).
 
 ## Requesting Features
 
-Use the [feature request template](.github/ISSUE_TEMPLATE/feature_request.yml).
+Use the [feature request template](.github/ISSUE_TEMPLATE/02-FEATURE-REQUEST.yml).
 Describe the problem, your proposed solution, and any alternatives considered.

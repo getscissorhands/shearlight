@@ -6,7 +6,7 @@ See [README.md](README.md) for local setup and
 [sample/README.md](sample/README.md) for preview commands.
 
 For questions about this starter, email
-[ask@getscissorhands.app](mailto:ask@getscissorhands.app). Remove secrets and
+`ask (at) getscissorhands (dot) app`. Remove secrets and
 private content from any configuration, examples, or logs you share.
 
 For reproducible bugs or feature suggestions, use this repository's
