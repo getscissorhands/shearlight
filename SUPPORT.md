@@ -10,7 +10,7 @@ For questions about this starter, email
 private content from any configuration, examples, or logs you share.
 
 For reproducible bugs or feature suggestions, use this repository's
-[issue forms](https://github.com/getscissorhands/theme-template/issues/new/choose).
+[issue forms](https://github.com/getscissorhands/shearlight/issues/new/choose).
 Check existing issues first and include the affected revision, relevant
 ScissorHands package versions, and environment details.
 
