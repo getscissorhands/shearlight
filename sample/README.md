@@ -1,6 +1,6 @@
 # Theme preview
 
-This provides an end-to-end preview with the theme linked at `themes/<theme-slug>` to `../../src`.
+This provides an end-to-end preview with the theme linked at `themes/shearlight` to `../../src`.
 
 ## Build
 

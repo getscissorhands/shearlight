@@ -22,7 +22,7 @@ dotnet run -- --preview
 
 Stop preview before rebuilding its executable. For static output instead, run `dotnet run -- --build` from `sample`. Modes are explicit (not selected by the launch profile); output goes to `preview/` or `dist/`.
 
-The sample's `themes/<theme-slug>` link must point to the repository's `src` directory. Keep linked Razor sources included in the sample build while excluding their `bin` and `obj` directories. See the [preview instructions](sample/README.md).
+The sample's `themes/shearlight` link must point to the repository's `src` directory. Keep linked Razor sources included in the sample build while excluding their `bin` and `obj` directories. See the [preview instructions](sample/README.md).
 
 ## Theme contracts
 

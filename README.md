@@ -33,7 +33,7 @@ src/
 │       └── theme.js
 ├── favicon.ico
 ├── theme.json
-├── ThemeTemplate.csproj
+├── shearlight.csproj
 ├── _Imports.razor
 ├── MainLayout.razor
 ├── IndexView.razor
@@ -52,20 +52,20 @@ src/
 
 ## Local Preview
 
-The sample needs a symbolic link at `sample/themes/<theme-slug>` pointing to `src`, with the relative target `../../src`. The repository initialization workflow creates this link; create it manually if it is missing.
+The sample needs a symbolic link at `sample/themes/shearlight` pointing to `src`, with the relative target `../../src`. The repository initialization workflow creates this link; create it manually if it is missing.
 
-If the link is missing, run one of the following from the repository root. Replace `<theme-slug>` with the `Site:Theme` value in `sample/appsettings.json` if you renamed the theme.
+If the link is missing, run one of the following from the repository root. Replace `shearlight` with the `Site:Theme` value in `sample/appsettings.json` if you renamed the theme.
 
 ```bash
 # zsh/bash
 mkdir -p sample/themes
-ln -s ../../src sample/themes/<theme-slug>
+ln -s ../../src sample/themes/shearlight
 ```
 
 ```powershell
 # PowerShell
 New-Item -ItemType Directory -Path ./sample/themes -Force
-New-Item -ItemType SymbolicLink -Path ./sample/themes/<theme-slug> -Target ../../src
+New-Item -ItemType SymbolicLink -Path ./sample/themes/shearlight -Target ../../src
 ```
 
 Then build and preview from the repository root:

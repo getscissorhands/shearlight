@@ -1,8 +1,8 @@
 {
-  "name": "Theme Template",
+  "name": "shearlight",
   "version": "1.0.0",
-  "description": "A theme template for ScissorHands.NET",
-  "slug": "theme-template",
+  "description": "A multi-purpose theme for sites and blogs, with ScissorHands.NET, inspired by Astro Starlight",
+  "slug": "shearlight",
   "stylesheets": [
     "/assets/css/theme.css"
   ],
